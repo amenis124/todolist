@@ -20,7 +20,19 @@ function onAddTaskClicked(event) {
 
 function onTodoListClicked(event) {
     let targetElement = event.toElement;
-    console.log(targetElement);
+
+    while (!targetElement.classList.contains("task")) {
+        targetElement = targetElement.parentElement
+    }
+    let checkbox = targetElement.querySelector(".checkbox");
+
+    if (checkbox.checkbox) {
+        targetElement.classList.add("completed");
+    } else {
+        targetElement.classList.remove("completed");
+    }
+
+    
 }
 
 
