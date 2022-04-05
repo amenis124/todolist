@@ -15,6 +15,12 @@
     
     /* Step 2. Lets write the function to handle the 'click' event
     ---------------------------------------------------------------*/
+    function saveTask(name, isCompleted){
+        localStorage.setItem(name, isCompleted)
+    }
+
+
+    
     function onAddTaskClicked(event) {
         
         let taskName = newTaskInput.value;
@@ -26,6 +32,8 @@
     
         /* So the HTML has been update, lets insert the HTML into the DOM tree */
         todoListContainer.insertAdjacentHTML('beforeend', taskHTML);
+
+        saveTask(taskName, false)
     }
     
     
@@ -73,6 +81,7 @@
         for (let i =0; i < tasks.length; i++){
                 tasks[i].style.display = "block"
         }
+
     }
     /* Step 3 make the event trigger our functions
     -----------------------------------------------*/ 
